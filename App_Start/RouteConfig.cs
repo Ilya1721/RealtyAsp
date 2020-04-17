@@ -16,7 +16,7 @@ namespace Realty
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Poster", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -45,9 +45,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -56,7 +57,81 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
+                },
+                new Flat
+                {
+                    Street = "Разіна",
+                    District = "Дубово",
+                    House = "10",
+                    FlatNumber = "",
+                    Description = "Продається 3 кім. квартира в хорошому" +
+                    " житловому стані, не кутова. Роздільні кімнати." +
+                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
+                    RoomCount = 3,
+                    AreaSize = 51.1,
+                    Floor = 3,
+                    MaxFloor = 5,
+                    KitchenSize = 5,
+                    HeaterID = 1,
+                    BuildYear = null,
+                    IsExhange = false,
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
+
+                },
+                new Flat
+                {
+                    Street = "Франка",
+                    District = "Дубово",
+                    House = "12",
+                    FlatNumber = "",
+                    Description = "Продається 3 кім. квартира в хорошому" +
+                    " житловому стані, не кутова. Роздільні кімнати." +
+                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
+                    RoomCount = 3,
+                    AreaSize = 56.1,
+                    Floor = 7,
+                    MaxFloor = 10,
+                    KitchenSize = 7,
+                    HeaterID = 1,
+                    BuildYear = null,
+                    IsExhange = false,
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
+                },
+                new Flat
+                {
+                    Street = "Козацька",
+                    District = "Дубово",
+                    House = "13",
+                    FlatNumber = "",
+                    Description = "Продається 3 кім. квартира в хорошому" +
+                    " житловому стані, не кутова. Роздільні кімнати." +
+                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
+                    RoomCount = 3,
+                    AreaSize = 56.1,
+                    Floor = 5,
+                    MaxFloor = 5,
+                    KitchenSize = 7,
+                    HeaterID = 1,
+                    BuildYear = null,
+                    IsExhange = false,
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -67,9 +142,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -78,7 +154,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -89,9 +166,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -100,7 +178,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -111,9 +190,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -122,7 +202,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -133,9 +214,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -144,7 +226,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -155,9 +238,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -166,7 +250,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
                 new Flat
                 {
@@ -177,9 +262,10 @@ namespace Realty.DB
                     Description = "Продається 3 кім. квартира в хорошому" +
                     " житловому стані, не кутова. Роздільні кімнати." +
                     " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
+                    PriceDollar = 27000,
+                    PriceGrn = 737705,
+                    CurrencyID = 1,
+                    ApplicationUserID = 1,
                     RoomCount = 3,
                     AreaSize = 56.1,
                     Floor = 5,
@@ -188,73 +274,8 @@ namespace Realty.DB
                     HeaterID = 1,
                     BuildYear = null,
                     IsExhange = false,
-                    IsBarter = false
-                },
-                new Flat
-                {
-                    Street = "Гастелло",
-                    District = "Дубово",
-                    House = "12",
-                    FlatNumber = "",
-                    Description = "Продається 3 кім. квартира в хорошому" +
-                    " житловому стані, не кутова. Роздільні кімнати." +
-                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
-                    RoomCount = 3,
-                    AreaSize = 56.1,
-                    Floor = 5,
-                    MaxFloor = 5,
-                    KitchenSize = 7,
-                    HeaterID = 1,
-                    BuildYear = null,
-                    IsExhange = false,
-                    IsBarter = false
-                },
-                new Flat
-                {
-                    Street = "Гастелло",
-                    District = "Дубово",
-                    House = "12",
-                    FlatNumber = "",
-                    Description = "Продається 3 кім. квартира в хорошому" +
-                    " житловому стані, не кутова. Роздільні кімнати." +
-                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
-                    RoomCount = 3,
-                    AreaSize = 56.1,
-                    Floor = 5,
-                    MaxFloor = 5,
-                    KitchenSize = 7,
-                    HeaterID = 1,
-                    BuildYear = null,
-                    IsExhange = false,
-                    IsBarter = false
-                },
-                new Flat
-                {
-                    Street = "Гастелло",
-                    District = "Дубово",
-                    House = "12",
-                    FlatNumber = "",
-                    Description = "Продається 3 кім. квартира в хорошому" +
-                    " житловому стані, не кутова. Роздільні кімнати." +
-                    " Розвинена інфраструктура. Поруч садочок та школа, магазини.",
-                    PriceArr = new int[] {27000, 737705},
-                    CurrencyID = 0,
-                    ApplicationUserID = 0,
-                    RoomCount = 3,
-                    AreaSize = 56.1,
-                    Floor = 5,
-                    MaxFloor = 5,
-                    KitchenSize = 7,
-                    HeaterID = 1,
-                    BuildYear = null,
-                    IsExhange = false,
-                    IsBarter = false
+                    IsBarter = false,
+                    Date = new DateTime(2020, 12, 21, 2, 0, 0)
                 },
             };
             Flats.ForEach(g => context.Flats.Add(g));
@@ -290,36 +311,36 @@ namespace Realty.DB
 
             List<PhotoFlatPivot> PhotoFlatPivots = new List<PhotoFlatPivot>
             {
-                new PhotoFlatPivot { FlatID = 0, PhotoID = 0 },
-                new PhotoFlatPivot { FlatID = 0, PhotoID = 1 },
-                new PhotoFlatPivot { FlatID = 0, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 1, PhotoID = 0 },
                 new PhotoFlatPivot { FlatID = 1, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 1, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 2, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 1, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 2, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 2, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 3, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 2, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 3, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 3, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 4, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 3, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 4, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 4, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 5, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 4, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 5, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 5, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 6, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 5, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 6, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 6, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 7, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 6, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 7, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 7, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 8, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 7, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 8, PhotoID = 1 },
                 new PhotoFlatPivot { FlatID = 8, PhotoID = 2 },
-                new PhotoFlatPivot { FlatID = 9, PhotoID = 0 },
+                new PhotoFlatPivot { FlatID = 8, PhotoID = 3 },
                 new PhotoFlatPivot { FlatID = 9, PhotoID = 1 },
-                new PhotoFlatPivot { FlatID = 9, PhotoID = 2 }
+                new PhotoFlatPivot { FlatID = 9, PhotoID = 2 },
+                new PhotoFlatPivot { FlatID = 9, PhotoID = 3 },
+                new PhotoFlatPivot { FlatID = 10, PhotoID = 1 },
+                new PhotoFlatPivot { FlatID = 10, PhotoID = 2 },
+                new PhotoFlatPivot { FlatID = 10, PhotoID = 3 }
             };
 
             PhotoFlatPivots.ForEach(g => context.PhotoFlatPivots.Add(g));

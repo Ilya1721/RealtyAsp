@@ -13,7 +13,8 @@ namespace Realty.Models
         public string House { get; set; }
         public string FlatNumber { get; set; }
         public string Description { get; set; }
-        public int[] PriceArr { get; set; }
+        public int PriceDollar { get; set; }
+        public int PriceGrn { get; set; }
         public int CurrencyID { get; set; }
         public int ApplicationUserID { get; set; }
         public int RoomCount { get; set; }
@@ -25,9 +26,10 @@ namespace Realty.Models
         public int? BuildYear { get; set; }
         public bool IsExhange { get; set; }
         public bool IsBarter { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual Currency Currency { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual HeaterType HeaterType { get; set; }
     }
 }

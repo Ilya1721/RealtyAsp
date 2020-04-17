@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    var posters = ViewData["posters"] as List<Realty.Models.Flat>;
+    var photoPivots = ViewData["photoPivots"] as List<Realty.Models.PhotoFlatPivot>;
+}
+
+<div class="home">
+    @Html.Partial("_Filter")
+    <div class="poster-div">
+        @foreach (var poster in posters)
+        {
+            <div class="poster">
+                <div class="img-div">
+                    <a href=@Url.Action("Show", "Poster",
+                        new { PosterID = poster.FlatID })>
+                        <img src="https://cdn.riastatic.com/photosnew/dom/photo/realty-prodaja-kvartira-hmelnitskiy-dubovo-gastello-ulitsa__98151584fl.jpg" alt="img" />
+                    </a>
+                </div>
+                <div class="info-div">
+                    <div class="name-div">
+                        <div class="name">
+                            <a href=@Url.Action("Show", "Poster",
+                                    new { PosterID = poster.FlatID })>
+                                Район @poster.District ул. @poster.Street
+                                @poster.House
+                            </a>
+                        </div>
+                        <div>
+                            <button type="button" class="star-button">
+                                <i className=fa fa-star></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="price">
+                        @poster.PriceDollar $
+                        <span class="second-part">
+                            <i class="fas fa-circle"></i>
+                            <span class="alt">@poster.PriceGrn грн</span>
+                        </span>
+                    </div>
+                    <div class="rooms">
+                        @poster.RoomCount комнат
+                        <span class="second-part">
+                            <i class="fas fa-circle"></i>
+                            <span class="alt">
+                                @poster.AreaSize м<sup>2</sup>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="description">
+                        @poster.Description.Substring(0, 40)...
+                    </div>
+                    <div class="date">
+                        <i class="far fa-clock"></i>
+                        @poster.Date.ToString("g")
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

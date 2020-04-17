@@ -102,3 +102,4 @@ D:\VisualStudio Projects\Realty\Realty\obj\Debug\Realty.csproj.CoreCompileInputs
 D:\VisualStudio Projects\Realty\Realty\obj\Debug\Realty.csproj.CopyComplete
 D:\VisualStudio Projects\Realty\Realty\obj\Debug\Realty.dll
 D:\VisualStudio Projects\Realty\Realty\obj\Debug\Realty.pdb
+D:\VisualStudio Projects\Realty\Realty\obj\Debug\Realty.csprojAssemblyReference.cache
