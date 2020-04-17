@@ -1,0 +1,342 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%; }
+
+.sticky + .content {
+  padding-top: 150px; }
+
+.text-danger {
+  color: red; }
+
+.form {
+  margin-left: 300px;
+  margin-top: 25px; }
+  .form .header-div {
+    font-size: 2em;
+    margin-bottom: 15px; }
+  .form .checkbox-div {
+    margin-bottom: 10px;
+    font-size: 1.2em; }
+    .form .checkbox-div input[type="checkbox"] {
+      width: 15px;
+      height: 15px; }
+  .form .form-link a {
+    color: #0069d9;
+    font-size: 1.2em;
+    text-decoration: none; }
+    .form .form-link a:hover {
+      text-decoration: underline; }
+  .form .form-group {
+    display: flex;
+    flex-direction: column; }
+    .form .form-group label {
+      font-size: 1.2em;
+      margin-bottom: 5px; }
+    .form .form-group input[type="text"],
+    .form .form-group input[type="email"],
+    .form .form-group input[type="password"] {
+      margin-bottom: 10px;
+      font-size: 1.2em; }
+    .form .form-group input[type="submit"] {
+      border: 0;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer; }
+      .form .form-group input[type="submit"]:hover {
+        background: #0069d9; }
+      .form .form-group input[type="submit"]:focus {
+        outline: none; }
+
+.header {
+  background: #f0f2fa;
+  z-index: 10; }
+  .header .container {
+    padding: 6px 7px;
+    height: 30px;
+    width: 960px;
+    margin: auto;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between; }
+    .header .container nav {
+      vertical-align: central; }
+    .header .container span,
+    .header .container a {
+      padding-right: 15px; }
+    .header .container a {
+      color: #333333;
+      text-decoration: none; }
+      .header .container a:hover {
+        text-decoration: underline; }
+      .header .container a.active {
+        color: red; }
+
+.slider {
+  display: flex;
+  justify-content: center;
+  margin: 25px auto; }
+  .slider img {
+    width: 620px;
+    height: 465px; }
+  .slider .container {
+    position: relative; }
+    .slider .container i {
+      font-size: 3em;
+      color: #fff; }
+    .slider .container .btn-left {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      margin-left: 5px;
+      background-color: rgba(129, 127, 113, 0.2);
+      color: white;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px; }
+      .slider .container .btn-left:hover {
+        background-color: rgba(129, 127, 113, 0.4); }
+      .slider .container .btn-left:focus {
+        outline: none; }
+    .slider .container .btn-right {
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      margin-right: 5px;
+      background-color: rgba(129, 127, 113, 0.2);
+      color: white;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px; }
+      .slider .container .btn-right:hover {
+        background-color: rgba(129, 127, 113, 0.4); }
+      .slider .container .btn-right:focus {
+        outline: none; }
+
+.charact-div {
+  margin-top: 30px;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 650px;
+  border-bottom: 1px solid #999999; }
+  .charact-div i {
+    font-size: 0.8em;
+    color: #236699;
+    margin-right: 5px; }
+  .charact-div .left {
+    color: #4d4d4d; }
+  .charact-div .right {
+    color: #0d0d0d; }
+  .charact-div .left div,
+  .charact-div .right div {
+    height: 35px; }
+  .charact-div div {
+    margin-bottom: 15px; }
+
+.details {
+  width: 960px;
+  margin: 50px auto; }
+  .details .details-header {
+    display: flex; }
+    .details .details-header .name {
+      font-size: 2em;
+      color: #4d4d4d;
+      font-weight: bold; }
+    .details .details-header .star {
+      align-self: center;
+      margin-right: 25px; }
+  .details #photo-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 2em;
+    color: #333333; }
+  .details .tabs {
+    width: 620px;
+    margin: auto; }
+    .details .tabs .button-div .tab-btn {
+      font-size: 1em;
+      width: 200px;
+      padding: 5px 10px;
+      border: 0;
+      border-bottom: 1px solid grey;
+      background: #cccccc; }
+      .details .tabs .button-div .tab-btn:first-child {
+        border-right: 1px solid grey; }
+      .details .tabs .button-div .tab-btn:focus {
+        outline: none; }
+      .details .tabs .button-div .tab-btn:hover {
+        background: #b3b3b3; }
+      .details .tabs .button-div .tab-btn.checked {
+        color: #fff;
+        background: #17a2b8; }
+        .details .tabs .button-div .tab-btn.checked:hover {
+          background: #138496; }
+    .details .tabs .info-header {
+      display: flex;
+      justify-content: center;
+      font-size: 1.4em;
+      margin-bottom: 5px; }
+    .details .tabs .description {
+      margin-top: 15px; }
+      .details .tabs .description .desc-body {
+        font-size: 1.1em; }
+    .details .tabs .price .price-body, .details .tabs .home .poster-div .poster .info-div .rooms .price-body, .home .poster-div .poster .info-div .details .tabs .rooms .price-body {
+      color: #009a00;
+      font-size: 1.6em;
+      font-weight: bold; }
+      .details .tabs .price .price-body .second-part, .details .tabs .home .poster-div .poster .info-div .rooms .price-body .second-part, .home .poster-div .poster .info-div .details .tabs .rooms .price-body .second-part {
+        color: #898989;
+        font-size: 1.2rem; }
+        .details .tabs .price .price-body .second-part i, .details .tabs .home .poster-div .poster .info-div .rooms .price-body .second-part i, .home .poster-div .poster .info-div .details .tabs .rooms .price-body .second-part i {
+          font-size: 0.08em;
+          padding: 10px 5px;
+          vertical-align: middle; }
+        .details .tabs .price .price-body .second-part .alt, .details .tabs .home .poster-div .poster .info-div .rooms .price-body .second-part .alt, .home .poster-div .poster .info-div .details .tabs .rooms .price-body .second-part .alt {
+          font-weight: normal;
+          color: #333333; }
+    .details .tabs .address .address-body {
+      font-size: 1.1em; }
+
+.star-button {
+  background: #fff;
+  border: 0;
+  cursor: pointer; }
+  .star-button:focus {
+    outline: none; }
+  .star-button i {
+    font-size: 1.5em; }
+    .star-button i:hover {
+      color: orange; }
+
+.checked {
+  color: orange; }
+
+.home {
+  width: 960px;
+  margin: 25px auto;
+  display: flex; }
+  .home .filter-div {
+    width: 250px; }
+    .home .filter-div #price-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #4d4d4d; }
+    .home .filter-div #room-label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #4d4d4d; }
+    .home .filter-div .propos-div {
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: #333333; }
+      .home .filter-div .propos-div #number {
+        font-weight: bold; }
+    .home .filter-div .submit-div {
+      margin-top: 15px; }
+      .home .filter-div .submit-div input[type="submit"] {
+        background: #007bff;
+        border: 0;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 1em;
+        cursor: pointer;
+        width: 100px;
+        height: 30px; }
+        .home .filter-div .submit-div input[type="submit"]:hover {
+          background: #0069d9; }
+        .home .filter-div .submit-div input[type="submit"]:focus {
+          outline: none; }
+    .home .filter-div .room-button {
+      background: #fff;
+      border: 1px solid #b3b3b3;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 5px;
+      padding: 5px;
+      width: 35px;
+      height: 35px;
+      font-size: 1em;
+      color: #333333; }
+      .home .filter-div .room-button.clicked {
+        background: #f0f2fa;
+        border-color: #256799; }
+      .home .filter-div .room-button:focus {
+        outline: none; }
+    .home .filter-div input[type="text"] {
+      width: 60px;
+      height: 20px;
+      margin-right: 6px;
+      font-size: 1em;
+      padding: 5px;
+      color: #333333;
+      border-radius: 4px;
+      border: 1px solid #b3b3b3; }
+    .home .filter-div select {
+      width: 60px;
+      height: 30px;
+      font-size: 1em;
+      border-radius: 4px;
+      color: #333333; }
+  .home .poster-div {
+    margin-bottom: 150px; }
+    .home .poster-div .poster {
+      border-bottom: 1px solid #d9d9d9;
+      padding: 25px 0;
+      display: flex; }
+      .home .poster-div .poster .img-div img {
+        padding-right: 15px;
+        width: 210px;
+        height: 130px; }
+      .home .poster-div .poster .info-div a {
+        color: #3333ff;
+        text-decoration: none;
+        font-size: 1.2em; }
+      .home .poster-div .poster .info-div .name-div {
+        display: flex; }
+        .home .poster-div .poster .info-div .name-div .name {
+          margin-right: 50px;
+          width: 300px; }
+      .home .poster-div .poster .info-div .price, .home .poster-div .poster .info-div .rooms {
+        color: #009a00;
+        font-size: 1.4em;
+        font-weight: bold; }
+        .home .poster-div .poster .info-div .price .second-part, .home .poster-div .poster .info-div .rooms .second-part {
+          color: #898989;
+          font-size: 1rem; }
+          .home .poster-div .poster .info-div .price .second-part i, .home .poster-div .poster .info-div .rooms .second-part i {
+            font-size: 0.08em;
+            padding: 10px 5px;
+            vertical-align: middle; }
+          .home .poster-div .poster .info-div .price .second-part .alt, .home .poster-div .poster .info-div .rooms .second-part .alt {
+            font-weight: normal;
+            color: #333333; }
+      .home .poster-div .poster .info-div .rooms {
+        font-size: 0.9em;
+        color: #333333;
+        font-weight: normal; }
+      .home .poster-div .poster .info-div .description {
+        color: #333333; }
+      .home .poster-div .poster .info-div .date {
+        color: #333333; }
+        .home .poster-div .poster .info-div .date i {
+          padding-right: 5px; }
