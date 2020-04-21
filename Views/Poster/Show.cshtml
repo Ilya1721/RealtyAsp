@@ -1,0 +1,123 @@
+﻿@{ 
+    ViewBag.Title = "Poster";
+    var flat = ViewData["flat"] as Realty.Models.Flat;
+    var photos = ViewData["photos"] as Realty.Models.Photo;
+    int photoIndex = 0;
+
+    var exhange = flat.IsExhange ? "возможен обмен" : "нет";
+    var barter = flat.IsBarter ? "возможен торг" : "нет";
+}
+
+<div class="details">
+    <div class="details-header">
+        <div class="star">
+            <button type="button" class="star-button">
+                <i class="fa fa-star"></i>
+            </button>
+        </div>
+        <div class="name">
+            @flat.RoomCount комнатная квартира @flat.AreaSize
+            кв.м. @flat.DistrictType @flat.District
+            @flat.Street
+        </div>
+    </div>
+    <div id="photo-header">Фото</div>
+    <div class="slider">
+        <div class="container">
+            <img src='@Url.Action("GetImage", "Poster",
+                      new { flatID = flat.FlatID, photoID = photoIndex })'
+            alt="img" />
+            <button class="btn-left">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="btn-right">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+    <div class="tabs">
+        <div class="description">
+            <div class="info-header">Опис</div>
+            <div class="desc-body">
+                @flat.Description
+            </div>
+        </div>
+        <div class="price">
+            <div class="info-header">Ціна</div>
+            <div class="price-body">
+                @flat.PriceDollar $
+                <span class="second-part">
+                    <i class="fas fa-circle"></i>
+                    <span class="alt">@flat.PriceGrn грн</span>
+                </span>
+            </div>
+        </div>
+        <div class="address">
+            <div class="info-header">Адреса</div>
+            <div class="address-body">
+                @flat.DistrictType @flat.District
+                @flat.Street / @flat.House
+            </div>
+        </div>
+        <div class="charact-div">
+            <div class="left">
+                <div>
+                    <i class="fas fa-check"></i> Комнат
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Общая площадь
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Кухня
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Этаж
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Этажность
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Отопление
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Тип валюты
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Возможен торг
+                </div>
+                <div>
+                    <i class="fas fa-check"></i> Возможен обмен
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    @flat.RoomCount
+                </div>
+                <div>
+                    @flat.AreaSize
+                </div>
+                <div>
+                    @flat.KitchenSize
+                </div>
+                <div>
+                    @flat.Floor
+                </div>
+                <div>
+                    @flat.MaxFloor
+                </div>
+                <div>
+                    @flat.HeaterType.Name
+                </div>
+                <div>
+                    @flat.Currency.Name
+                </div>
+                <div>
+                    @exhange
+                </div>
+                <div>
+                    @barter
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

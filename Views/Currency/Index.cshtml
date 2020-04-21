@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var currencies = ViewData["currencies"] as List<Realty.Models.Currency>;
+    var id = 1;
+}
+
+<div class="home">
+    <div class="admin-div">
+        <a class="add-btn" href=@Url.Action("Create", "Currency")>
+            Додати тип валюти
+        </a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var currency in currencies)
+                {
+                <tr>
+                    <td>
+                        @id @{ id++; }
+                    </td>
+                    <td>
+                        @currency.Name
+                    </td>
+                    <td>
+                        <a href='@Url.Action("Edit", "Currency",
+                                        new { CurrencyID = currency.CurrencyID })'
+                        >
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <form action='@Url.Action("Delete", "Currency",
+                                             new { CurrencyID = currency.CurrencyID })'
+                              method="post">
+                            <input type="submit" class="btn-delete" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

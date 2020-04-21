@@ -1,0 +1,37 @@
+﻿@using Realty.Models
+@model Realty.Models.HeaterType
+@{
+    ViewBag.Title = "Edit Heater Type";
+    var heaterType = ViewData["heaterType"] as HeaterType;
+}
+
+<section>
+    @using (Html.BeginForm("Update", "HeaterType", new
+    {
+        HeaterTypeID = heaterType.HeaterTypeID,
+        ReturnUrl = Url.Action("Index", "HeaterType")
+    },
+        FormMethod.Post, new { @class = "form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = heaterType.Name })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="submit-div">
+                <input type="submit" value="Submit" />
+                <a href="@Url.Action("Index", "HeaterType")" class="btn-cancel">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

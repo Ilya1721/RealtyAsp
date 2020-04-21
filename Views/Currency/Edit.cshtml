@@ -1,0 +1,34 @@
+﻿@using Realty.Models
+@model Realty.Models.Currency
+@{
+    ViewBag.Title = "Edit Currency";
+    var currency = ViewData["currency"] as Currency;
+}
+
+<section>
+    @using (Html.BeginForm("Update", "Currency", new { CurrencyID = currency.CurrencyID,
+        ReturnUrl = Url.Action("Index", "Currency") },
+        FormMethod.Post, new { @class = "form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value=currency.Name })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="submit-div">
+                <input type="submit" value="Submit" />
+                <a href="@Url.Action("Index", "Currency")" class="btn-cancel">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

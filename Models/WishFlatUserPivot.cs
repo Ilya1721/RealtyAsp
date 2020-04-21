@@ -9,9 +9,8 @@ namespace Realty.Models
     {
         public int WishFlatUserPivotID { get; set; }
         public int FlatID { get; set; }
-        public int ApplicationUserID { get; set; }
+        public string UserName { get; set; }
         
         public virtual Flat Flat { get; set; }
-        public virtual ApplicationUser User { get; set; }
     }
 }

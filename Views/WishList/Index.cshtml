@@ -6,11 +6,12 @@
 }
 
 <div class="home">
-    @Html.Partial("_Filter")
+    <div class="filter-div">
+        <div class="propos-div">
+            <span id="number">@posters.Count</span> предложений
+        </div>
+    </div>
     <div class="poster-div">
-        <a class="add-btn-big" href=@Url.Action("Create", "Poster")>
-            Розмістити об`яву
-        </a>
         @foreach (var poster in posters)
         {
             <div class="poster">
@@ -44,9 +45,9 @@
                                 }
                                 else
                                 {
-                                <button type="submit" onsubmit="onSubmit" class="star-button">
-                                    <i id="star" class="fa fa-star"></i>
-                                </button>
+                                    <button type="submit" onsubmit="onSubmit" class="star-button">
+                                        <i id="star" class="fa fa-star"></i>
+                                    </button>
                                 }
                             </form>
                         </div>

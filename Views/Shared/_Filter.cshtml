@@ -17,21 +17,15 @@
             <option value="240">грн.</option>
             <option value="241">€</option>
         </select>
-        <label htmlfor="rooms_count" id="room-label">
-            Комнат
+        <label htmlfor="roomFrom" id="room-label">
+            Количество комнат (от до)
         </label>
-        <button class="room-button" type="button">
-            1
-        </button>
-        <button class="room-button" type="button">
-            2
-        </button>
-        <button class="room-button" type="button">
-            3
-        </button>
-        <button class="room-button" type="button">
-            4+
-        </button>
+        <input id="roomFrom"
+               name="roomFrom"
+               type="text" />
+        <input id="roomTo"
+               name="roomTo"
+               type="text" />
         <div class="submit-div">
             <input type="submit" value="Filter" />
         </div>

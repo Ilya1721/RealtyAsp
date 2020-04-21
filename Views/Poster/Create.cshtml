@@ -1,0 +1,127 @@
+﻿@using Realty.Models
+@model Realty.Models.Flat
+@{
+    ViewBag.Title = "New Poster";
+
+    var currencies = ViewData["currencies"] as List<Currency>;
+    var heaterTypes = ViewData["heaterTypes"] as List<HeaterType>;
+}
+
+<section>
+    @using (Html.BeginForm("Store", "Poster", new { ReturnUrl = Url.Action("Index", "Poster") },
+        FormMethod.Post, new { @class = "form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="DistrictType" class="control-label">Тип району</label>
+            @Html.TextBoxFor(m => m.DistrictType, new { @class = "form-control", @Required="false" })
+            @Html.ValidationMessageFor(m => m.DistrictType, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="District" class="control-label">Район</label>
+            @Html.TextBoxFor(m => m.District, new { @class = "form-control", @Required = "false" })
+            @Html.ValidationMessageFor(m => m.District, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="Street" class="control-label">Вулиця</label>
+            @Html.TextBoxFor(m => m.Street, new { @class = "form-control", @Required = "false" })
+            @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="House" class="control-label">Будинок</label>
+            @Html.TextBoxFor(m => m.House, new { @class = "form-control", @Required = "false" })
+            @Html.ValidationMessageFor(m => m.House, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="FlatNumber" class="control-label">Номер квартири</label>
+            @Html.TextBoxFor(m => m.FlatNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FlatNumber, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="PriceDollar" class="control-label">Ціна в доларах</label>
+            @Html.TextBoxFor(m => m.PriceDollar, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PriceDollar, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="PriceGrn" class="control-label">Ціна в гривнях</label>
+            @Html.TextBoxFor(m => m.PriceGrn, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PriceGrn, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Тип валюти</label>
+            <select name="CurrencyID" id="CurrencyID">
+                @foreach (var item in currencies)
+                {
+                    <option value=@item.CurrencyID>
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="RoomCount" class="control-label">Кількість кімнат</label>
+            @Html.TextBoxFor(m => m.RoomCount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RoomCount, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="AreaSize" class="control-label">Площа загальна</label>
+            @Html.TextBoxFor(m => m.AreaSize, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.AreaSize, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="KitchenSize" class="control-label">Площа кухні</label>
+            @Html.TextBoxFor(m => m.KitchenSize, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.KitchenSize, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="Floor" class="control-label">Поверх</label>
+            @Html.TextBoxFor(m => m.Floor, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Floor, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="MaxFloor" class="control-label">Кількість поверхів</label>
+            @Html.TextBoxFor(m => m.MaxFloor, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MaxFloor, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Тип опалення</label>
+            <select name="HeaterTypeID" id="HeaterTypeID">
+                @foreach (var item in heaterTypes)
+                {
+                    <option value=@item.HeaterTypeID>
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="BuildYeaer" class="control-label">Рік побудови</label>
+            @Html.TextBoxFor(m => m.BuildYear, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BuildYear, "", new { @class = "text-danger" })
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" name="IsExhange" />
+            <label for="IsExhange" class="control-label">Обмін</label>
+            @Html.ValidationMessageFor(m => m.IsExhange, "", new { @class = "text-danger" })
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" name="IsBarter" />
+            <label for="IsBarter" class="control-label">Торг</label>
+            @Html.ValidationMessageFor(m => m.IsBarter, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="submit-div">
+                <input type="submit" value="Submit" class="mybtn-submit" />
+                <a href="@Url.Action("Index", "Poster")" class="btn-cancel">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

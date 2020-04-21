@@ -10,6 +10,7 @@ namespace Realty.Models
         public int FlatID { get; set; }
         public string Street { get; set; }
         public string District { get; set; }
+        public string DistrictType { get; set; }
         public string House { get; set; }
         public string FlatNumber { get; set; }
         public string Description { get; set; }
@@ -22,7 +23,7 @@ namespace Realty.Models
         public int Floor { get; set; }
         public int MaxFloor { get; set; }
         public double KitchenSize { get; set; }
-        public int HeaterID { get; set; }
+        public int HeaterTypeID { get; set; }
         public int? BuildYear { get; set; }
         public bool IsExhange { get; set; }
         public bool IsBarter { get; set; }

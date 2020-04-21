@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var heaterTypes = ViewData["heaterTypes"] as List<Realty.Models.HeaterType>;
+    var id = 1;
+}
+
+<div class="home">
+    <div class="admin-div">
+        <a class="add-btn" href=@Url.Action("Create", "HeaterType")>
+            Додати тип опалення
+        </a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var heaterType in heaterTypes)
+                {
+                    <tr>
+                        <td>
+                            @id @{ id++; }
+                        </td>
+                        <td>
+                            @heaterType.Name
+                        </td>
+                        <td>
+                            <a href='@Url.Action("Edit", "HeaterType",
+                                        new { HeaterTypeID = heaterType.HeaterTypeID })'>
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action='@Url.Action("Delete", "HeaterType",
+                                             new { HeaterTypeID = heaterType.HeaterTypeID })'
+                                  method="post">
+                                <input type="submit" class="btn-delete" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

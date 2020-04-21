@@ -44,10 +44,16 @@ body {
             color: #0069d9;
             font-size: 1.2em;
             text-decoration: none;
+
             &:hover {
                 text-decoration: underline;
             }
         }
+    }
+
+    .checkbox-group {
+        margin-bottom: 15px;
+        font-size: 1.1em;
     }
 
     .form-group {
@@ -61,9 +67,31 @@ body {
 
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        select
+        {
             margin-bottom: 10px;
             font-size: 1.2em;
+            height: 25px;
+        }
+
+        .btn-cancel {
+            background: #dc3545;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-decoration: none;
+
+            &:hover {
+                background: #c82333;
+            }
+
+            &:focus {
+                outline: none;
+            }
         }
 
         input[type="submit"] {
@@ -78,6 +106,7 @@ body {
             &:hover {
                 background: #0069d9;
             }
+
             &:focus {
                 outline: none;
             }
@@ -187,6 +216,104 @@ body {
     }
 }
 
+.admin-links {
+    a {
+        text-decoration: none;
+        font-size: 1.2em;
+        color: blue;
+        &:visited {
+            color: blue;
+        }
+        &:hover {
+           text-decoration: underline;
+        }
+    }
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 3px 7px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+
+    &:hover {
+        background: #c82333;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.admin-div {
+    margin-left: 325px;
+
+    .table {
+        border-collapse: collapse;
+        font-size: 1.2em;
+
+        td, th {
+            min-width: 50px;
+            border: 1px solid black;
+            padding: 2px 3px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: blue;
+
+            &:visited {
+                color: blue;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .add-btn {
+        color: blue;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        &:visited {
+            color: blue;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.add-btn-big {
+    display: block;
+    text-decoration: none;
+    background: #007bff;
+    border: 0;
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: #fff;
+    width: 150px;
+    text-align: center;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background: #0069d9;
+    }
+}
+
 .charact-div {
     margin-top: 30px;
     font-size: 1.1em;
@@ -254,6 +381,8 @@ body {
         margin: auto;
 
         .button-div {
+            display: flex;
+
             .tab-btn {
                 font-size: 1em;
                 width: 200px;
@@ -261,6 +390,9 @@ body {
                 border: 0;
                 border-bottom: 1px solid grey;
                 background: lighten(#000, 80);
+                text-decoration: none;
+                display: block;
+                color: #000;
 
                 &:first-child {
                     border-right: 1px solid grey;

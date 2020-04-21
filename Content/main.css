@@ -34,6 +34,9 @@ body {
     text-decoration: none; }
     .form .form-link a:hover {
       text-decoration: underline; }
+  .form .checkbox-group {
+    margin-bottom: 15px;
+    font-size: 1.1em; }
   .form .form-group {
     display: flex;
     flex-direction: column; }
@@ -42,9 +45,24 @@ body {
       margin-bottom: 5px; }
     .form .form-group input[type="text"],
     .form .form-group input[type="email"],
-    .form .form-group input[type="password"] {
+    .form .form-group input[type="password"],
+    .form .form-group select {
       margin-bottom: 10px;
-      font-size: 1.2em; }
+      font-size: 1.2em;
+      height: 25px; }
+    .form .form-group .btn-cancel {
+      background: #dc3545;
+      color: #fff;
+      border: 0;
+      border-radius: 5px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 1.1em;
+      text-decoration: none; }
+      .form .form-group .btn-cancel:hover {
+        background: #c82333; }
+      .form .form-group .btn-cancel:focus {
+        outline: none; }
     .form .form-group input[type="submit"] {
       border: 0;
       background: #007bff;
@@ -127,6 +145,74 @@ body {
       .slider .container .btn-right:focus {
         outline: none; }
 
+.admin-links a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: blue; }
+  .admin-links a:visited {
+    color: blue; }
+  .admin-links a:hover {
+    text-decoration: underline; }
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 3px 7px;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: none; }
+  .btn-delete:hover {
+    background: #c82333; }
+  .btn-delete:focus {
+    outline: none; }
+
+.admin-div {
+  margin-left: 325px; }
+  .admin-div .table {
+    border-collapse: collapse;
+    font-size: 1.2em; }
+    .admin-div .table td, .admin-div .table th {
+      min-width: 50px;
+      border: 1px solid black;
+      padding: 2px 3px; }
+    .admin-div .table td {
+      border: 1px solid black; }
+    .admin-div .table a {
+      text-decoration: none;
+      font-size: 1.2em;
+      color: blue; }
+      .admin-div .table a:visited {
+        color: blue; }
+      .admin-div .table a:hover {
+        text-decoration: underline; }
+  .admin-div .add-btn {
+    color: blue;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em; }
+    .admin-div .add-btn:visited {
+      color: blue; }
+    .admin-div .add-btn:hover {
+      text-decoration: underline; }
+
+.add-btn-big {
+  display: block;
+  text-decoration: none;
+  background: #007bff;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: #fff;
+  width: 150px;
+  text-align: center; }
+  .add-btn-big:focus {
+    outline: none; }
+  .add-btn-big:hover {
+    background: #0069d9; }
+
 .charact-div {
   margin-top: 30px;
   font-size: 1.1em;
@@ -170,24 +256,29 @@ body {
   .details .tabs {
     width: 620px;
     margin: auto; }
-    .details .tabs .button-div .tab-btn {
-      font-size: 1em;
-      width: 200px;
-      padding: 5px 10px;
-      border: 0;
-      border-bottom: 1px solid grey;
-      background: #cccccc; }
-      .details .tabs .button-div .tab-btn:first-child {
-        border-right: 1px solid grey; }
-      .details .tabs .button-div .tab-btn:focus {
-        outline: none; }
-      .details .tabs .button-div .tab-btn:hover {
-        background: #b3b3b3; }
-      .details .tabs .button-div .tab-btn.checked {
-        color: #fff;
-        background: #17a2b8; }
-        .details .tabs .button-div .tab-btn.checked:hover {
-          background: #138496; }
+    .details .tabs .button-div {
+      display: flex; }
+      .details .tabs .button-div .tab-btn {
+        font-size: 1em;
+        width: 200px;
+        padding: 5px 10px;
+        border: 0;
+        border-bottom: 1px solid grey;
+        background: #cccccc;
+        text-decoration: none;
+        display: block;
+        color: #000; }
+        .details .tabs .button-div .tab-btn:first-child {
+          border-right: 1px solid grey; }
+        .details .tabs .button-div .tab-btn:focus {
+          outline: none; }
+        .details .tabs .button-div .tab-btn:hover {
+          background: #b3b3b3; }
+        .details .tabs .button-div .tab-btn.checked {
+          color: #fff;
+          background: #17a2b8; }
+          .details .tabs .button-div .tab-btn.checked:hover {
+            background: #138496; }
     .details .tabs .info-header {
       display: flex;
       justify-content: center;

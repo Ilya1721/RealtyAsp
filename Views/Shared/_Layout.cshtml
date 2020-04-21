@@ -12,10 +12,16 @@
     <div id="header" class="header">
         <div class="container">
             <div class="nav">
-                <a href="/">
+                <a href=@Url.Action("Index", "Poster")>
                     Головна
                 </a>
                 <a href="/wishList">Список Обраних</a>
+                @if (Roles.IsUserInRole("Admin"))
+                {
+                    <a href=@Url.Action("Index", "Admin")>
+                        Admin
+                    </a>
+                }
             </div>
             <div class="login">
                 @Html.Partial("_LoginPartial")
