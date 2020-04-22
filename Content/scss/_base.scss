@@ -56,9 +56,20 @@ body {
         font-size: 1.1em;
     }
 
+    .submit-div {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        width: 165px;
+    }
+
     .form-group {
         display: flex;
         flex-direction: column;
+
+        textarea {
+            font-size: 1.2em;
+        }
 
         label {
             font-size: 1.2em;
@@ -68,8 +79,7 @@ body {
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        select
-        {
+        select {
             margin-bottom: 10px;
             font-size: 1.2em;
             height: 25px;
@@ -521,6 +531,8 @@ body {
 
         .submit-div {
             margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
 
             input[type="submit"] {
                 background: #007bff;
@@ -658,6 +670,27 @@ body {
                     i {
                         padding-right: 5px;
                     }
+                }
+            }
+        }
+
+        .form-btn {
+            display: flex;
+            width: 100px;
+            justify-content: space-between;
+            font-size: 1.1em;
+            margin-top: 10px;
+
+            a {
+                text-decoration: none;
+                color: blue;
+
+                &:visited {
+                    color: blue;
+                }
+
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }

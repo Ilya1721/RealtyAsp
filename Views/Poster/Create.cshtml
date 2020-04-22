@@ -9,13 +9,13 @@
 
 <section>
     @using (Html.BeginForm("Store", "Poster", new { ReturnUrl = Url.Action("Index", "Poster") },
-        FormMethod.Post, new { @class = "form", role = "form" }))
+        FormMethod.Post, new { @class = "form", role = "form", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <label for="DistrictType" class="control-label">Тип району</label>
-            @Html.TextBoxFor(m => m.DistrictType, new { @class = "form-control", @Required="false" })
+            @Html.TextBoxFor(m => m.DistrictType, new { @class = "form-control", @Required = "false" })
             @Html.ValidationMessageFor(m => m.DistrictType, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
@@ -40,12 +40,12 @@
         </div>
         <div class="form-group">
             <label for="PriceDollar" class="control-label">Ціна в доларах</label>
-            @Html.TextBoxFor(m => m.PriceDollar, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.PriceDollar, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.PriceDollar, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <label for="PriceGrn" class="control-label">Ціна в гривнях</label>
-            @Html.TextBoxFor(m => m.PriceGrn, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.PriceGrn, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.PriceGrn, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
@@ -61,27 +61,27 @@
         </div>
         <div class="form-group">
             <label for="RoomCount" class="control-label">Кількість кімнат</label>
-            @Html.TextBoxFor(m => m.RoomCount, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.RoomCount, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.RoomCount, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <label for="AreaSize" class="control-label">Площа загальна</label>
-            @Html.TextBoxFor(m => m.AreaSize, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.AreaSize, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.AreaSize, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <label for="KitchenSize" class="control-label">Площа кухні</label>
-            @Html.TextBoxFor(m => m.KitchenSize, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.KitchenSize, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.KitchenSize, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <label for="Floor" class="control-label">Поверх</label>
-            @Html.TextBoxFor(m => m.Floor, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Floor, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.Floor, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <label for="MaxFloor" class="control-label">Кількість поверхів</label>
-            @Html.TextBoxFor(m => m.MaxFloor, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.MaxFloor, new { @class = "form-control", @Required = "true" })
             @Html.ValidationMessageFor(m => m.MaxFloor, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
@@ -97,7 +97,7 @@
         </div>
         <div class="form-group">
             <label for="BuildYeaer" class="control-label">Рік побудови</label>
-            @Html.TextBoxFor(m => m.BuildYear, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.BuildYear, new { @class = "form-control", @Required = "false" })
             @Html.ValidationMessageFor(m => m.BuildYear, "", new { @class = "text-danger" })
         </div>
         <div class="checkbox-group">
@@ -109,6 +109,14 @@
             <input type="checkbox" name="IsBarter" />
             <label for="IsBarter" class="control-label">Торг</label>
             @Html.ValidationMessageFor(m => m.IsBarter, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="description" class="control-label">Опис</label>
+            <textarea rows="10" cols="40" name="Description" id="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="photos" class="control-label">Фото</label>
+            <input type="file" name="Photos" id="photos" multiple="multiple" />
         </div>
 
         <div class="form-group">

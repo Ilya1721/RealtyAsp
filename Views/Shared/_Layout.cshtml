@@ -22,6 +22,12 @@
                         Admin
                     </a>
                 }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href=@Url.Action("MyPosters", "Poster")>
+                        Мої об`яви
+                    </a>
+                }
             </div>
             <div class="login">
                 @Html.Partial("_LoginPartial")

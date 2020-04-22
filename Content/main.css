@@ -37,9 +37,16 @@ body {
   .form .checkbox-group {
     margin-bottom: 15px;
     font-size: 1.1em; }
+  .form .submit-div {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 165px; }
   .form .form-group {
     display: flex;
     flex-direction: column; }
+    .form .form-group textarea {
+      font-size: 1.2em; }
     .form .form-group label {
       font-size: 1.2em;
       margin-bottom: 5px; }
@@ -343,7 +350,9 @@ body {
       .home .filter-div .propos-div #number {
         font-weight: bold; }
     .home .filter-div .submit-div {
-      margin-top: 15px; }
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between; }
       .home .filter-div .submit-div input[type="submit"] {
         background: #007bff;
         border: 0;
@@ -431,3 +440,16 @@ body {
         color: #333333; }
         .home .poster-div .poster .info-div .date i {
           padding-right: 5px; }
+    .home .poster-div .form-btn {
+      display: flex;
+      width: 100px;
+      justify-content: space-between;
+      font-size: 1.1em;
+      margin-top: 10px; }
+      .home .poster-div .form-btn a {
+        text-decoration: none;
+        color: blue; }
+        .home .poster-div .form-btn a:visited {
+          color: blue; }
+        .home .poster-div .form-btn a:hover {
+          text-decoration: underline; }

@@ -3,45 +3,13 @@
     var posters = ViewData["posters"] as List<Realty.Models.Flat>;
     var photoPivots = ViewData["photoPivots"] as List<Realty.Models.PhotoFlatPivot>;
     var wishList = ViewData["wishList"] as List<Realty.Models.WishFlatUserPivot>;
-    var currencies = ViewData["currencies"] as List<Realty.Models.Currency>;
 }
 
 <div class="home">
     <div class="filter-div">
-        <form action=@Url.Action("Filter", "Poster")>
-            <div class="propos-div">
-                <span id="number">@posters.Count</span> предложений
-            </div>
-            <label htmlfor="priceFrom" id="price-label">
-                Цена
-            </label>
-            <input id="priceFrom"
-                   name="PriceFrom"
-                   type="text" />
-            <input id="PriceTo"
-                   name="priceTo"
-                   type="text" />
-            <select name="Currency">
-                @foreach(var currency in currencies)
-                {
-                    <option value=@currency.CurrencyID>
-                        @currency.Name
-                    </option>
-                }
-            </select>
-            <label htmlfor="roomFrom" id="room-label">
-                Количество комнат (от до)
-            </label>
-            <input id="RoomFrom"
-                   name="RoomFrom"
-                   type="text" />
-            <input id="roomTo"
-                   name="RoomTo"
-                   type="text" />
-            <div class="submit-div">
-                <input type="submit" value="Filter" />
-            </div>
-        </form>
+        <div class="propos-div">
+            <span id="number">@posters.Count</span> предложений
+        </div>
     </div>
     <div class="poster-div">
         <a class="add-btn-big" href=@Url.Action("Create", "Poster")>
@@ -119,6 +87,20 @@
                         <i class="far fa-clock"></i>
                         @poster.Date.ToString("g")
                     </div>
+                </div>
+            </div>
+            <div class="form-btn">
+                <div>
+                    <a href=@Url.Action("Edit", "Poster", new { flatID = poster.FlatID })>
+                        Edit
+                    </a>
+                </div>
+                <div>
+                    <form action='@Url.Action("Delete", "Poster",
+                                             new { flatID = poster.FlatID })'
+                          method="post">
+                        <input type="submit" class="btn-delete" value="Delete">
+                    </form>
                 </div>
             </div>
         }
