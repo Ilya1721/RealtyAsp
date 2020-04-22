@@ -57,14 +57,14 @@ namespace Realty.Controllers
             int roomFrom;
             int roomTo;
 
-            if(Request.Params["PriceFrom"] == "")
+            if (Request.Params["PriceFrom"] == "")
             {
                 priceFrom = 0;
             }
             else
             {
                 priceFrom = int.Parse(Request.Params["PriceFrom"]);
-                if(priceFrom < 0)
+                if (priceFrom < 0)
                 {
                     priceFrom = 0;
                 }
@@ -77,7 +77,7 @@ namespace Realty.Controllers
             else
             {
                 priceTo = int.Parse(Request.Params["PriceTo"]);
-                if(priceTo < 0)
+                if (priceTo < 0)
                 {
                     priceTo = 0;
                 }
@@ -90,7 +90,7 @@ namespace Realty.Controllers
             else
             {
                 roomFrom = int.Parse(Request.Params["RoomFrom"]);
-                if(roomFrom < 0)
+                if (roomFrom < 0)
                 {
                     roomFrom = 0;
                 }
@@ -103,7 +103,7 @@ namespace Realty.Controllers
             else
             {
                 roomTo = int.Parse(Request.Params["RoomTo"]);
-                if(roomTo < 0)
+                if (roomTo < 0)
                 {
                     roomTo = 0;
                 }
@@ -121,11 +121,11 @@ namespace Realty.Controllers
             List<Flat> flats = DataContext.Flats.Where(f => f.CurrencyID == currencyID)
                                                    .Where(f => f.RoomCount >= roomFrom)
                                                    .Where(f => f.RoomCount <= roomTo).ToList();
-            if(priceTo == 0)
+            if (priceTo == 0)
             {
                 ViewData["posters"] = flats;
             }
-            else if(DataContext.Currencies.Find(currencyID).Name == "$")
+            else if (DataContext.Currencies.Find(currencyID).Name == "$")
             {
                 ViewData["posters"] = flats.Where(f => f.PriceDollar >= priceFrom)
                                            .Where(f => f.PriceDollar <= priceTo).ToList();
@@ -135,7 +135,7 @@ namespace Realty.Controllers
                 ViewData["posters"] = flats.Where(f => f.PriceGrn >= priceFrom)
                                            .Where(f => f.PriceGrn <= priceTo).ToList();
             }
-                                                   
+
             ViewData["photoPivots"] = DataContext.PhotoFlatPivots.ToList();
             ViewData["wishList"] = DataContext.WishFlatUserPivots
                                    .Where(wish => wish.UserName == User.Identity.Name)
@@ -199,8 +199,8 @@ namespace Realty.Controllers
             int maxFloor = 1;
             bool isExhange = false;
             bool isBarter = false;
-            
-            if(Request.Params["Street"] != null)
+
+            if (Request.Params["Street"] != null)
             {
                 street = Request.Params["Street"];
             }
@@ -256,17 +256,17 @@ namespace Realty.Controllers
             {
                 buildYear = null;
             }
-            if(Request.Params["PriceDollar"] != null)
+            if (Request.Params["PriceDollar"] != null)
             {
                 try
                 {
                     priceDollar = int.Parse(Request.Params["PriceDollar"]);
-                    if(priceDollar < 0)
+                    if (priceDollar < 0)
                     {
                         priceDollar = 0;
                     }
                 }
-                catch(Exception exc)
+                catch (Exception exc)
                 {
                     return Redirect(Url.Action("Index", "Poster"));
                 }
@@ -286,7 +286,7 @@ namespace Realty.Controllers
                     return Redirect(Url.Action("Index", "Poster"));
                 }
             }
-            if(Request.Params["RoomCount"] != null)
+            if (Request.Params["RoomCount"] != null)
             {
                 try
                 {
@@ -390,7 +390,7 @@ namespace Realty.Controllers
 
             if (Request.Files.Count != 0)
             {
-                for(int i = 0; i < Request.Files.Count; ++i)
+                for (int i = 0; i < Request.Files.Count; ++i)
                 {
                     string fileName = System.IO.Path.GetFileName(Request.Files[i].FileName);
                     Request.Files[i].SaveAs(Server.MapPath("~/Content/img/" + fileName));
@@ -427,6 +427,297 @@ namespace Realty.Controllers
             }
 
             return Redirect(Url.Action("Index", "Poster"));
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? FlatID)
+        {
+            if (FlatID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewData["currencies"] = DataContext.Currencies.ToList();
+            ViewData["heaterTypes"] = DataContext.HeaterTypes.ToList();
+            ViewData["flat"] = DataContext.Flats.Find(FlatID);
+
+            return View();
+        }
+
+        [HttpPost, ActionName("Update")]
+        [ValidateAntiForgeryToken]
+        public RedirectResult Update(int? FlatID)
+        {
+            if(FlatID != null && DataContext.Flats.Find(FlatID).UserName == User.Identity.Name)
+            {
+                var Context = DataContext;
+                string street;
+                string district;
+                string districtType;
+                string house;
+                string flatNumber;
+                string description;
+                int? buildYear;
+                int priceDollar = 0;
+                int priceGrn = 0;
+                int roomCount = 0;
+                double areaSize = 0;
+                double kitchenSize = 0;
+                int floor = 1;
+                int maxFloor = 1;
+                bool isExhange = false;
+                bool isBarter = false;
+
+                if (Request.Params["Street"] != null)
+                {
+                    street = Request.Params["Street"];
+                }
+                else
+                {
+                    street = "";
+                }
+                if (Request.Params["District"] != null)
+                {
+                    district = Request.Params["District"];
+                }
+                else
+                {
+                    district = "";
+                }
+                if (Request.Params["DistrictType"] != null)
+                {
+                    districtType = Request.Params["DistrictType"];
+                }
+                else
+                {
+                    districtType = "";
+                }
+                if (Request.Params["House"] != null)
+                {
+                    house = Request.Params["House"];
+                }
+                else
+                {
+                    house = "";
+                }
+                if (Request.Params["FlatNumber"] != null)
+                {
+                    flatNumber = Request.Params["FlatNumber"];
+                }
+                else
+                {
+                    flatNumber = "";
+                }
+                if (Request.Params["Description"] != null)
+                {
+                    description = Request.Params["Description"];
+                }
+                else
+                {
+                    description = "";
+                }
+                if (Request.Params["BuildYear"] != null)
+                {
+                    buildYear = int.Parse(Request.Params["BuildYear"]);
+                }
+                else
+                {
+                    buildYear = null;
+                }
+                if (Request.Params["PriceDollar"] != null)
+                {
+                    try
+                    {
+                        priceDollar = int.Parse(Request.Params["PriceDollar"]);
+                        if (priceDollar < 0)
+                        {
+                            priceDollar = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["PriceGrn"] != null)
+                {
+                    try
+                    {
+                        priceGrn = int.Parse(Request.Params["PriceGrn"]);
+                        if (priceGrn < 0)
+                        {
+                            priceGrn = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["RoomCount"] != null)
+                {
+                    try
+                    {
+                        roomCount = int.Parse(Request.Params["RoomCount"]);
+                        if (roomCount < 0)
+                        {
+                            roomCount = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["AreaSize"] != null)
+                {
+                    try
+                    {
+                        areaSize = int.Parse(Request.Params["AreaSize"]);
+                        if (areaSize < 0)
+                        {
+                            areaSize = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["KitchenSize"] != null)
+                {
+                    try
+                    {
+                        kitchenSize = int.Parse(Request.Params["KitchenSize"]);
+                        if (kitchenSize < 0)
+                        {
+                            kitchenSize = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["Floor"] != null)
+                {
+                    try
+                    {
+                        floor = int.Parse(Request.Params["Floor"]);
+                        if (floor < 0)
+                        {
+                            floor = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+                if (Request.Params["MaxFloor"] != null)
+                {
+                    try
+                    {
+                        maxFloor = int.Parse(Request.Params["MaxFloor"]);
+                        if (maxFloor < 0)
+                        {
+                            maxFloor = 0;
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        return Redirect(Url.Action("Index", "Poster"));
+                    }
+                }
+
+                Flat flat = Context.Flats.Find(FlatID);
+                flat.Street = street;
+                flat.District = district;
+                flat.DistrictType = districtType;
+                flat.House = house;
+                flat.FlatNumber = flatNumber;
+                flat.Description = description;
+                flat.PriceDollar = priceDollar;
+                flat.PriceGrn = priceGrn;
+                flat.CurrencyID = int.Parse(Request.Params["CurrencyID"]);
+                flat.UserName = User.Identity.Name;
+                flat.RoomCount = roomCount;
+                flat.AreaSize = areaSize;
+                flat.Floor = floor;
+                flat.MaxFloor = maxFloor;
+                flat.KitchenSize = kitchenSize;
+                flat.HeaterTypeID = int.Parse(Request.Params["HeaterTypeID"]);
+                flat.BuildYear = buildYear;
+                flat.IsExhange = isExhange;
+                flat.IsBarter = isBarter;
+                flat.Date = DateTime.Now;
+                Context.SaveChanges();
+
+                if (Request.Files.Count > 1)
+                {
+                    for (int i = 0; i < Request.Files.Count; ++i)
+                    {
+                        string fileName = System.IO.Path.GetFileName(Request.Files[i].FileName);
+                        Request.Files[i].SaveAs(Server.MapPath("~/Content/img/" + fileName));
+                        var extension = Path.GetExtension(Server.MapPath("~/Content/img/" + fileName)).ToLower();
+                        ImageFormat imageFormat = ImageFormat.Jpeg;
+
+                        switch (extension)
+                        {
+                            case ".jfif": imageFormat = ImageFormat.Jpeg; break;
+                            case ".jpg": imageFormat = ImageFormat.Jpeg; break;
+                            case ".png": imageFormat = ImageFormat.Png; break;
+                            case ".gif": imageFormat = ImageFormat.Gif; break;
+                            case ".icon": imageFormat = ImageFormat.Icon; break;
+                        }
+
+                        var FlatImage = ImageLoader.
+                            ImageToByteArray(Image.FromFile(Server.MapPath("~/Content/img/" + fileName)), imageFormat);
+                        var FlatImageMimeType = imageFormat;
+
+                        Photo photo = Context.Photos.Add(new Photo
+                        {
+                            Image = FlatImage,
+                            ImageMimeType = "image/" + extension.Substring(1)
+                        });
+                        Context.SaveChanges();
+
+                        Context.PhotoFlatPivots.Add(new PhotoFlatPivot
+                        {
+                            FlatID = flat.FlatID,
+                            PhotoID = photo.PhotoID
+                        });
+                        Context.SaveChanges();
+                    }
+                }
+
+                return Redirect(Url.Action("MyPosters", "Poster"));
+            }
+
+            return Redirect(Url.Action("MyPosters", "Poster"));
+        }
+
+        [HttpPost]
+        public RedirectResult Delete(int? FlatID)
+        {
+            if (FlatID != null && DataContext.Flats.Find(FlatID).UserName == User.Identity.Name)
+            {
+                var Context = DataContext;
+                Context.Flats.Remove(Context.Flats.Find(FlatID));
+                var photoIds = Context.PhotoFlatPivots.Where(p => p.FlatID == FlatID)
+                                                      .Select(p => p.PhotoID).ToList();
+                for(int i = 0; i < photoIds.Count; ++i)
+                {
+                    Context.Photos.Remove(Context.Photos.Find(photoIds[i]));
+                    int Id = photoIds[i];
+                    Context.PhotoFlatPivots.RemoveRange(Context.PhotoFlatPivots
+                                                               .Where(p => p.PhotoID == Id)
+                                                               .ToList());
+                }
+                Context.SaveChanges();
+            }
+
+            return Redirect(Url.Action("MyPosters", "Poster"));
         }
     }
 }
