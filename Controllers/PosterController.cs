@@ -24,12 +24,24 @@ namespace Realty.Controllers
         public ActionResult Index()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
+            List<PhotoFlatPivot> pivots = new List<PhotoFlatPivot>();
+            List<Photo> photos = new List<Photo>();
+
+            List<Flat> flats = DataContext.Flats.ToList();
+            foreach(var flat in flats)
+            {
+                pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == flat.FlatID).ToList();
+                var Ids = pivots.Select(piv => piv.PhotoID);
+                photos.Add(DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList().First());
+            }
+
             ViewData["posters"] = DataContext.Flats.ToList();
-            ViewData["photoPivots"] = DataContext.PhotoFlatPivots.ToList();
             ViewData["wishList"] = DataContext.WishFlatUserPivots
                                    .Where(wish => wish.UserName == User.Identity.Name)
                                    .ToList();
             ViewData["currencies"] = DataContext.Currencies.ToList();
+            ViewData["photos"] = photos;
 
             return View();
         }
@@ -37,6 +49,18 @@ namespace Realty.Controllers
         public ActionResult MyPosters()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+            List<PhotoFlatPivot> pivots = new List<PhotoFlatPivot>();
+            List<Photo> photos = new List<Photo>();
+
+            List<Flat> flats = DataContext.Flats.Where(f => f.UserName ==
+                                                               User.Identity.Name).ToList();
+            foreach (var flat in flats)
+            {
+                pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == flat.FlatID).ToList();
+                var Ids = pivots.Select(piv => piv.PhotoID);
+                photos.Add(DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList().First());
+            }
+
             ViewData["posters"] = DataContext.Flats.Where(f => f.UserName ==
                                                                User.Identity.Name).ToList();
             ViewData["photoPivots"] = DataContext.PhotoFlatPivots.ToList();
@@ -44,6 +68,7 @@ namespace Realty.Controllers
                                    .Where(wish => wish.UserName == User.Identity.Name)
                                    .ToList();
             ViewData["currencies"] = DataContext.Currencies.ToList();
+            ViewData["photos"] = photos;
 
             return View();
         }
@@ -136,11 +161,22 @@ namespace Realty.Controllers
                                            .Where(f => f.PriceGrn <= priceTo).ToList();
             }
 
-            ViewData["photoPivots"] = DataContext.PhotoFlatPivots.ToList();
+
+            List<PhotoFlatPivot> pivots = new List<PhotoFlatPivot>();
+            List<Photo> photos = new List<Photo>();
+
+            foreach (var flat in flats)
+            {
+                pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == flat.FlatID).ToList();
+                var Ids = pivots.Select(piv => piv.PhotoID);
+                photos.Add(DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList().First());
+            }
+
             ViewData["wishList"] = DataContext.WishFlatUserPivots
                                    .Where(wish => wish.UserName == User.Identity.Name)
                                    .ToList();
             ViewData["currencies"] = DataContext.Currencies.ToList();
+            ViewData["photos"] = photos;
 
             return View("Index");
         }
@@ -149,15 +185,36 @@ namespace Realty.Controllers
         {
             List<PhotoFlatPivot> pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == posterID).ToList();
             var Ids = pivots.Select(piv => piv.PhotoID);
-            List<Photo> photos = DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList();
+            Photo photo = DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList().First();
 
             ViewData["flat"] = DataContext.Flats.Find(posterID);
-            ViewData["photos"] = photos;
+            ViewData["photo"] = photo;
 
             return View();
         }
 
-        public FileContentResult GetImage(int? flatID, int photoID = 0)
+        public ActionResult Photos(int? FlatID)
+        {
+            List<PhotoFlatPivot> pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == FlatID).ToList();
+            var Ids = pivots.Select(piv => piv.PhotoID);
+            List<Photo> photos = DataContext.Photos.Where(p => Ids.Contains(p.PhotoID)).ToList();
+
+            ViewData["photos"] = photos;
+            ViewData["flat"] = DataContext.Flats.Find(FlatID);
+
+            return View();
+        }
+
+        public FileContentResult GetImage(int photoID = 0)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
+            Photo photo = DataContext.Photos.Find(photoID);
+
+            return photo != null ? File(photo.Image, photo.ImageMimeType) : null;
+        }
+
+        /*public FileContentResult GetImage(int? flatID, int photoID = 0)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
             List<PhotoFlatPivot> pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == flatID).ToList();
@@ -167,7 +224,7 @@ namespace Realty.Controllers
             Photo photo = photos[photoID];
 
             return photo != null ? File(photo.Image, photo.ImageMimeType) : null;
-        }
+        }*/
 
         [HttpGet]
         public ActionResult Create()

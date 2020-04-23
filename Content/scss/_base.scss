@@ -359,6 +359,16 @@ body {
     }
 }
 
+.photos {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    img {
+        margin-bottom: 25px;
+    }
+}
+
 .details {
     width: 960px;
     margin: 50px auto;
@@ -389,6 +399,18 @@ body {
     .tabs {
         width: 620px;
         margin: auto;
+
+        .photos-link {
+            font-size: 1.1em;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+            &:visited {
+                color: blue;
+            }
+        }
 
         .button-div {
             display: flex;

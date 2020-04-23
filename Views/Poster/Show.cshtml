@@ -1,8 +1,7 @@
 ﻿@{ 
     ViewBag.Title = "Poster";
     var flat = ViewData["flat"] as Realty.Models.Flat;
-    var photos = ViewData["photos"] as Realty.Models.Photo;
-    int photoIndex = 0;
+    var photo = ViewData["photo"] as Realty.Models.Photo;
 
     var exhange = flat.IsExhange ? "возможен обмен" : "нет";
     var barter = flat.IsBarter ? "возможен торг" : "нет";
@@ -25,17 +24,14 @@
     <div class="slider">
         <div class="container">
             <img src='@Url.Action("GetImage", "Poster",
-                      new { flatID = flat.FlatID, photoID = photoIndex })'
-            alt="img" />
-            <button class="btn-left">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="btn-right">
-                <i class="fas fa-arrow-right"></i>
-            </button>
+                      new { photoID = photo.PhotoID })'
+                 alt="img" />
         </div>
     </div>
     <div class="tabs">
+        <a class="photos-link" href=@Url.Action("Photos", "Poster", new { FlatID = flat.FlatID })>
+            Усі фото
+        </a>
         <div class="description">
             <div class="info-header">Опис</div>
             <div class="desc-body">

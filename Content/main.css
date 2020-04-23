@@ -242,6 +242,14 @@ body {
   .charact-div div {
     margin-bottom: 15px; }
 
+.photos {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center; }
+  .photos img {
+    margin-bottom: 25px; }
+
 .details {
   width: 960px;
   margin: 50px auto; }
@@ -263,6 +271,13 @@ body {
   .details .tabs {
     width: 620px;
     margin: auto; }
+    .details .tabs .photos-link {
+      font-size: 1.1em;
+      text-decoration: none; }
+      .details .tabs .photos-link:hover {
+        text-decoration: underline; }
+      .details .tabs .photos-link:visited {
+        color: blue; }
     .details .tabs .button-div {
       display: flex; }
       .details .tabs .button-div .tab-btn {

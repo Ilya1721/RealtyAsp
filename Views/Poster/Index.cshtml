@@ -1,9 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
     var posters = ViewData["posters"] as List<Realty.Models.Flat>;
-    var photoPivots = ViewData["photoPivots"] as List<Realty.Models.PhotoFlatPivot>;
     var wishList = ViewData["wishList"] as List<Realty.Models.WishFlatUserPivot>;
     var currencies = ViewData["currencies"] as List<Realty.Models.Currency>;
+    var photos = ViewData["photos"] as List<Realty.Models.Photo>;
 }
 
 <div class="home">
@@ -47,30 +48,30 @@
         <a class="add-btn-big" href=@Url.Action("Create", "Poster")>
             Розмістити об`яву
         </a>
-        @foreach (var poster in posters)
+        @for(int i = 0; i < posters.Count; ++i)
         {
             <div class="poster">
                 <div class="img-div">
                     <a href=@Url.Action("Show", "Poster",
-                        new { PosterID = poster.FlatID })>
-                        <img src='@Url.Action("GetImage", "Poster", new { flatID = poster.FlatID })' />
+                        new { PosterID = posters[i].FlatID })>
+                        <img src='@Url.Action("GetImage", "Poster", new { photoID = photos[i].PhotoID })' />
                     </a>
                 </div>
                 <div class="info-div">
                     <div class="name-div">
                         <div class="name">
                             <a href=@Url.Action("Show", "Poster",
-                                    new { PosterID = poster.FlatID })>
-                                @poster.DistrictType @poster.District ул. @poster.Street
-                                @poster.House
+                                    new { PosterID = posters[i].FlatID })>
+                                @posters[i].DistrictType @posters[i].District ул. @posters[i].Street
+                                @posters[i].House
                             </a>
                         </div>
                         <div>
                             <form action='@Url.Action("AddToList", "WishList",
-                                          new { FlatID = poster.FlatID })'
+                                          new { FlatID = posters[i].FlatID })'
                                   method="post">
                                 @{
-                                    bool isInWish = wishList.FirstOrDefault(w => w.FlatID == poster.FlatID) != null;
+                                    bool isInWish = wishList.FirstOrDefault(w => w.FlatID == posters[i].FlatID) != null;
                                 }
                                 @if (isInWish)
                                 {
@@ -88,36 +89,36 @@
                         </div>
                     </div>
                     <div class="price">
-                        @poster.PriceDollar $
+                        @posters[i].PriceDollar $
                         <span class="second-part">
                             <i class="fas fa-circle"></i>
-                            <span class="alt">@poster.PriceGrn грн</span>
+                            <span class="alt">@posters[i].PriceGrn грн</span>
                         </span>
                     </div>
                     <div class="rooms">
-                        @poster.RoomCount комнат
+                        @posters[i].RoomCount комнат
                         <span class="second-part">
                             <i class="fas fa-circle"></i>
                             <span class="alt">
-                                @poster.AreaSize м<sup>2</sup>
+                                @posters[i].AreaSize м<sup>2</sup>
                             </span>
                         </span>
                     </div>
-                    @if (poster.Description.Length >= 40)
+                    @if (posters[i].Description.Length >= 40)
                     {
                         <div class="description">
-                            @poster.Description.Substring(0, 40)...
+                            @posters[i].Description.Substring(0, 40)...
                         </div>
                     }
                     else
                     {
                         <div class="description">
-                            @poster.Description;
+                            @posters[i].Description;
                         </div>
                     }
                     <div class="date">
                         <i class="far fa-clock"></i>
-                        @poster.Date.ToString("g")
+                        @posters[i].Date.ToString("g")
                     </div>
                 </div>
             </div>

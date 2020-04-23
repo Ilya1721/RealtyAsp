@@ -20,11 +20,22 @@ namespace Realty.Controllers
                                                  Where(p => p.UserName == User.Identity.Name)
                                                  .ToList();
             var Ids = wishPivots.Select(p => p.FlatID);
-            ViewData["posters"] = DataContext.Flats.Where(f => Ids.Contains(f.FlatID)).ToList();
-            ViewData["photoPivots"] = DataContext.PhotoFlatPivots.ToList();
+            List<PhotoFlatPivot> pivots = new List<PhotoFlatPivot>();
+            List<Photo> photos = new List<Photo>();
+
+            List<Flat> flats = DataContext.Flats.Where(f => Ids.Contains(f.FlatID)).ToList();
+
+            foreach (var flat in flats)
+            {
+                pivots = DataContext.PhotoFlatPivots.Where(p => p.FlatID == flat.FlatID).ToList();
+                var photoIds = pivots.Select(piv => piv.PhotoID);
+                photos.Add(DataContext.Photos.Where(p => photoIds.Contains(p.PhotoID)).ToList().First());
+            }
+            ViewData["posters"] = flats;
             ViewData["wishList"] = DataContext.WishFlatUserPivots
                                    .Where(wish => wish.UserName == User.Identity.Name)
                                    .ToList();
+            ViewData["photos"] = photos;
 
             return View();
         }

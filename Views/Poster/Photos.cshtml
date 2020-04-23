@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Photos";
+
+    var photos = ViewData["photos"] as List<Realty.Models.Photo>;
+    var flat = ViewData["flat"] as Realty.Models.Flat;
+}
+
+<div class="photos">
+    <h2>Усі фото</h2>
+    @foreach(var photo in photos)
+    {
+        <img src=@Url.Action("GetImage", "Poster",
+                 new { photoID = photo.PhotoID }) />
+    }
+</div>
